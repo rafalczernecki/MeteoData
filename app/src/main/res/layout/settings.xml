@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+
+    <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/server_settings_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="15dp"
+        tools:context=".MainActivity">
+
+        <TextView
+            android:id="@+id/current_server_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:text="@string/current_server"
+            android:textColor="@android:color/black"
+            android:textSize="20sp"/>
+
+        <TextView
+            android:id="@+id/current_server_tag_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/current_server_label"
+            android:layout_marginTop="5dp"
+            android:text="@string/tag"
+            android:textColor="@android:color/black"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/current_server_tag_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintLeft_toRightOf="@id/current_server_tag_label"
+            app:layout_constraintTop_toBottomOf="@+id/current_server_label"
+            android:layout_marginTop="5dp"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/current_server_ip_address_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/current_server_tag_label"
+            android:layout_marginTop="5dp"
+            android:text="@string/ip_address"
+            android:textColor="@android:color/black"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/current_server_ip_address_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintLeft_toRightOf="@id/current_server_ip_address_label"
+            app:layout_constraintTop_toBottomOf="@+id/current_server_tag_label"
+            android:layout_marginTop="5dp"
+            android:textSize="20sp" />
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/settings_conn_indicator_frag_container"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/current_server_ip_address_text_view">
+        </FrameLayout>
+
+        <Button
+            android:id="@+id/check_server_connection_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/settings_conn_indicator_frag_container"
+            android:layout_marginTop="10dp"
+            android:text="@string/check_server_connection" />
+
+        <View
+            style="@style/Divider"
+            android:id="@+id/server_settings_divider_1"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/check_server_connection_btn"
+            android:layout_marginTop="10dp" />
+
+        <TextView
+            android:id="@+id/choose_new_server_label"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/server_settings_divider_1"
+            android:layout_marginTop="15dp"
+            android:text="@string/choose_server"
+            android:textColor="@android:color/black"
+            android:textSize="20sp" />
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/serversListRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/choose_new_server_label"/>
+
+        <View
+            style="@style/Divider"
+            android:id="@+id/server_settings_divider_2"
+            android:layout_marginTop="10dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/serversListRecyclerView"/>
+
+        <TextView
+            android:id="@+id/add_new_server_label"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/server_settings_divider_2"
+            android:layout_marginTop="15dp"
+            android:text="@string/add_new_server"
+            android:textColor="@android:color/black"
+            android:textSize="20sp" />
+
+        <EditText
+            android:id="@+id/new_server_ip_address_edit_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/add_new_server_label"
+            android:layout_marginTop="20dp"
+            android:gravity="center_horizontal"
+            android:digits="0123456789."
+            android:hint="@string/enter_new_server_ip_address"
+            android:inputType="numberDecimal" />
+
+        <EditText
+            android:id="@+id/new_server_tag_edit_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/new_server_ip_address_edit_text"
+            android:layout_marginTop="20dp"
+            android:gravity="center_horizontal"
+            android:hint="@string/enter_new_server_ip_tag" />
+
+        <Button
+            android:id="@+id/add_new_server_ip_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/new_server_tag_edit_text"
+            android:text="@string/add_new_server" />
+
+    </android.support.constraint.ConstraintLayout>
+</ScrollView>
